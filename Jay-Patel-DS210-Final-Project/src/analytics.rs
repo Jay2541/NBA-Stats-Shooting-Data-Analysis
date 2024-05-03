@@ -1,6 +1,7 @@
 use ndarray::Array1;
 use ndarray_stats::CorrelationExt;
 use std::collections::HashMap;
+use crate::data_structures::{MergedData, CorrelationResults, PlayoffCorrelationResults};
 
 /// Calculates Pearson correlation coefficients for player shooting percentages to team points per game.
 pub fn correlate_statistics(merged_data: &[MergedData]) -> Vec<CorrelationResults> {
