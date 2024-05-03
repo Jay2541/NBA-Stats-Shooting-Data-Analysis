@@ -1,30 +1,58 @@
+use petgraph::Graph as PetGraph;
+use petgraph::graph::NodeIndex;
 use std::collections::HashMap;
-use std::fmt;
 
-#[derive(Clone, PartialEq, Eq, Hash, Debug)]
-pub enum NodeType {
-    Player(String),
-    Statistic(String),
-    Team(String),
+// Assuming NodeData and EdgeData are defined as follows:
+#[derive(Debug, Clone)]
+pub enum NodeData {
+    Player(Player),
+    Team(Team),
 }
 
-pub struct Graph {
-    pub nodes: Vec<NodeType>,
-    pub edges: HashMap<NodeType, Vec<NodeType>>,
+#[derive(Debug, Clone)]
+pub struct EdgeData {
+    relationship: String,
+    weight: f32,
 }
 
-impl Graph {
+pub struct BasketballGraph {
+    pub graph: PetGraph<NodeData, EdgeData>,
+    pub node_indices: HashMap<String, NodeIndex>,
+}
+
+impl BasketballGraph {
     pub fn new() -> Self {
-        Self { nodes: Vec::new(), edges: HashMap::new() }
-    }
-
-    pub fn add_node(&mut self, node: NodeType) {
-        if !self.nodes.contains(&node) {
-            self.nodes.push(node);
+        BasketballGraph {
+            graph: PetGraph::new(),
+            node_indices: HashMap::new(),
         }
     }
 
-    pub fn add_edge(&mut self, from: &NodeType, to: &NodeType) {
-        self.edges.entry(from.clone()).or_insert_with(Vec::new).push(to.clone());
+    // Constructs a graph from merged player and team data
+    pub fn construct_from_data(&mut self, data: &[MergedData]) {
+        for entry in data {
+            let player_node = self.add_player(&entry.player);
+            let team_node = self.add_team(&entry.team);
+
+            // Example: Connect every player to their respective team
+            self.graph.add_edge(player_node, team_node, EdgeData {
+                relationship: "plays for".to_string(),
+                weight: 1.0,  // Example weight, could be based on some specific statistics
+            });
+        }
+    }
+
+    pub fn add_player(&mut self, player: &Player) -> NodeIndex {
+        let node = self.node_indices.entry(player.name.clone()).or_insert_with(|| {
+            self.graph.add_node(NodeData::Player(player.clone()))
+        });
+        *node
+    }
+
+    pub fn add_team(&mut self, team: &Team) -> NodeIndex {
+        let node = self.node_indices.entry(team.name.clone()).or_insert_with(|| {
+            self.graph.add_node(NodeData::Team(team.clone()))
+        });
+        *node
     }
 }
