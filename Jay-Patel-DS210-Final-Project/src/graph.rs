@@ -1,59 +1,62 @@
-use petgraph::Graph as PetGraph;
-use petgraph::graph::NodeIndex;
+use petgraph::{Graph as PetGraph, graph::NodeIndex};
 use std::collections::HashMap;
-use crate::data_structures::{Player, Team, MergedData};
+use crate::data_structures::MergedData;
 
-// Assuming NodeData and EdgeData are defined as follows:
-#[derive(Debug, Clone)]
-pub enum NodeData {
-    Player(Player),
-    Team(Team),
+pub struct Graph {
+    pub graph: PetGraph<u32, f64>,
+    node_map: HashMap<u32, NodeIndex<u32>>,
 }
 
-#[derive(Debug, Clone)]
-pub struct EdgeData {
-    relationship: String,
-    weight: f32,
-}
-
-pub struct BasketballGraph {
-    pub graph: PetGraph<NodeData, EdgeData>,
-    pub node_indices: HashMap<String, NodeIndex>,
-}
-
-impl BasketballGraph {
+impl Graph {
     pub fn new() -> Self {
-        BasketballGraph {
+        Graph {
             graph: PetGraph::new(),
-            node_indices: HashMap::new(),
+            node_map: HashMap::new(),
         }
     }
 
-    // Constructs a graph from merged player and team data
-    pub fn construct_from_data(&mut self, data: &[MergedData]) {
-        for entry in data {
-            let player_node = self.add_player(&entry.player);
-            let team_node = self.add_team(&entry.team);
+    pub fn add_node(&mut self, id: u32) -> NodeIndex<u32> {
+        let node = self.graph.add_node(id);
+        self.node_map.insert(id, node);
+        node
+    }
 
-            // Example: Connect every player to their respective team
-            self.graph.add_edge(player_node, team_node, EdgeData {
-                relationship: "plays for".to_string(),
-                weight: 1.0,  // Example weight, could be based on some specific statistics
-            });
+    pub fn add_edge(&mut self, source: u32, target: u32, weight: f64) {
+        let source_node = self.node_map.get(&source).unwrap();
+        let target_node = self.node_map.get(&target).unwrap();
+        self.graph.add_edge(*source_node, *target_node, weight);
+    }
+
+    pub fn construct_from_data(&mut self, merged_data: &[MergedData]) {
+        for data in merged_data {
+            self.add_node(data.player.id);
+            self.add_node(data.team.abbreviation.as_bytes().iter().map(|&b| b as u32).sum());
+        }
+
+        for data in merged_data {
+            let player_node = self.node_map.get(&data.player.id).unwrap();
+            let team_node = self.node_map.get(&data.team.abbreviation.as_bytes().iter().map(|&b| b as u32).sum()).unwrap();
+            self.graph.add_edge(*player_node, *team_node, data.player.fg_percent);
         }
     }
 
-    pub fn add_player(&mut self, player: &Player) -> NodeIndex {
-        let node = self.node_indices.entry(player.name.clone()).or_insert_with(|| {
-            self.graph.add_node(NodeData::Player(player.clone()))
-        });
-        *node
+    pub fn get_node_weight(&self, node_id: u32) -> Option<&u32> {
+        self.graph.node_weight(*self.node_map.get(&node_id)?)
     }
 
-    pub fn add_team(&mut self, team: &Team) -> NodeIndex {
-        let node = self.node_indices.entry(team.name.clone()).or_insert_with(|| {
-            self.graph.add_node(NodeData::Team(team.clone()))
-        });
-        *node
+    pub fn get_edge_weight(&self, source: u32, target: u32) -> Option<&f64> {
+        let source_node = self.node_map.get(&source)?;
+        let target_node = self.node_map.get(&target)?;
+    
+        self.graph
+            .edge_weight(self.graph.find_edge(*source_node, *target_node).unwrap())
+    }
+
+    pub fn get_neighbors(&self, node_id: u32) -> Vec<u32> {
+        let node_idx = self.node_map.get(&node_id).unwrap();
+        self.graph
+            .neighbors_undirected(*node_idx)
+            .map(|neighbor_idx| *self.graph.node_weight(neighbor_idx).unwrap())
+            .collect()
     }
 }

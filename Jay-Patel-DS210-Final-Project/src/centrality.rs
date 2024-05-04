@@ -1,41 +1,26 @@
-use petgraph::algo::floyd_warshall;
-use petgraph::graph::{NodeIndex, UnGraph};
-use petgraph::prelude::*;
+use crate::graph::Graph;
+use rustworkx_core::centrality::{betweenness_centrality, closeness_centrality};
 use std::collections::HashMap;
 
-pub fn calculate_betweenness_centrality<N, E>(graph: &UnGraph<N, E>) -> HashMap<NodeIndex, f64> 
-where N: Clone, E: Clone + Into<f64> {
+pub fn calculate_centrality(graph: &Graph) -> HashMap<u32, f64> {
     let mut centrality_scores = HashMap::new();
-    let node_count = graph.node_count();
-    let shortest_paths = floyd_warshall(&graph, |edge| *edge.weight());
 
-    // Initialize centrality score for each node
-    for node in graph.node_indices() {
-        centrality_scores.insert(node, 0.0);
+    // Betweenness centrality
+    let betweenness_centrality_scores = betweenness_centrality(&graph.graph, true, true, graph.graph.node_count());
+    for (node_id, score) in graph.graph.node_weights().zip(betweenness_centrality_scores.iter().flatten()) {
+        *centrality_scores.entry(*node_id).or_insert(0.0) += score;
     }
 
-    // Calculate betweenness centrality
-    for (s, paths) in shortest_paths.iter().enumerate() {
-        let s_index = NodeIndex::new(s);
-        for (t, paths_to_t) in paths.iter().enumerate() {
-            let t_index = NodeIndex::new(t);
-            if s_index != t_index {
-                for (v, path_count) in paths_to_t.iter().enumerate() {
-                    let v_index = NodeIndex::new(v);
-                    if v_index != s_index && v_index != t_index {
-                        let through_v = path_count / paths_to_t[t];
-                        let current_centrality = centrality_scores.get_mut(&v_index).unwrap();
-                        *current_centrality += through_v;
-                    }
-                }
-            }
-        }
+    // Closeness centrality
+    let closeness_centrality_scores = closeness_centrality(&graph.graph, false);
+    for (node_id, score) in graph.graph.node_weights().zip(closeness_centrality_scores.iter().flatten()) {
+        *centrality_scores.entry(*node_id).or_insert(0.0) += score;
     }
 
-    // Normalize centrality scores
-    for centrality in centrality_scores.values_mut() {
-        *centrality /= (node_count - 1) as f64 * (node_count - 2) as f64;
-    }
+    // let degree_centrality_scores = degree_centrality(&graph);
+    // for (node_id, score) in degree_centrality_scores {
+    //     centrality_scores.insert(node_id, score);
+    // }
 
     centrality_scores
 }

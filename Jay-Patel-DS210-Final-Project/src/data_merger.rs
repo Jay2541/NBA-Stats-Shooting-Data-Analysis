@@ -1,17 +1,18 @@
-use crate::data_structures::{Player, Team, MergedData};
-use std::collections::HashMap;
+use crate::data_structures::{MergedData, Player, Team};
 
-pub fn merge_data(players: Vec<Player>, teams: Vec<Team>) -> Vec<MergedData> {
-    let team_map: HashMap<String, Team> = teams.into_iter()
-        .map(|team| (team.abbreviation.clone(), team))
-        .collect();
+pub fn merge_data(player_data: &[Player], team_data: &[Team]) -> Vec<MergedData> {
+    let mut merged_data = Vec::new();
 
-    players.into_iter().filter_map(|player| {
-        team_map.get(&player.team_abbreviation).map(|team| {
-            MergedData {
-                player,
-                team: team.clone(),
+    for player in player_data {
+        for team in team_data {
+            if player.team_abbreviation == team.abbreviation {
+                merged_data.push(MergedData {
+                    player: player.clone(),
+                    team: team.clone(),
+                });
             }
-        })
-    }).collect()
+        }
+    }
+
+    merged_data
 }

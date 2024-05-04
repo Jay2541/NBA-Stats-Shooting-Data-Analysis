@@ -1,41 +1,81 @@
-use plotters::prelude::*;
-use std::collections::HashMap;
+// // visualization.rs
+// use plotters::prelude::Text;
+// use crate::graph::Graph;
+// use std::collections::HashMap;
+// use plotters::backend::{BitMapBackend};
+// use plotters::prelude::WHITE;
+// use crate::analytics::CorrelationResult;
+// use crate::analytics::PlayoffCorrelationResults;
 
-pub fn visualize_centrality_scores(centrality_scores: &HashMap<i32, f64>) -> Result<(), Box<dyn std::error::Error>> {
-    // Define the path to the image we will generate
-    let root = BitMapBackend::new("centrality_scores.png", (640, 480)).into_drawing_area();
-    root.fill(&WHITE)?;
+// pub fn visualize_graph(graph: &Graph, centrality_scores: &HashMap<u32, f64>) {
+//     let mut nodes = Vec::new();
+//     let mut edges = Vec::new();
 
-    let max_centrality_score = centrality_scores.values().cloned().fold(f64::MIN, f64::max);
+//     for (node_id, centrality_score) in centrality_scores {
+//         let node_label = format!("{} ({:.2})", node_id, centrality_score);
+//         nodes.push(Text::new(node_label, (0, 0), ("sans-serif", 10)));
+//     }
 
-    let mut chart = ChartBuilder::on(&root)
-        .caption("Centrality Scores", ("sans-serif", 40))
-        .margin(5)
-        .x_label_area_size(30)
-        .y_label_area_size(30)
-        .build_cartesian_2d(0..centrality_scores.len(), 0.0..max_centrality_score)?;
+//     for edge in graph.graph.edge_indices() {
+//         let source = graph.graph.node_weight(edge.source()).unwrap();
+//         let target = graph.graph.node_weight(edge.target()).unwrap();
+//         let edge_weight = graph.graph.edge_weight(edge).unwrap();
+//         let edge_label = format!("{:.2}", edge_weight);
+//         edges.push(BitMapBackendImage::new(edge_label).into_drawing_area().into_element());
+//     }
 
-    chart.configure_mesh().draw()?;
+//     let layout = std::iter::once(nodes.into_iter())
+//         .chain(std::iter::once(edges.into_iter()))
+//         .collect::<std::vec::Vec<_>>();
 
-    // We will use different colors to make the plot more interesting
-    let colors = [RED, BLUE, GREEN, CYAN, MAGENTA, YELLOW];
+//     let root_area = BitMapBackend::new("graph.png", (1024, 768))
+//         .into_drawing_area();
+//     root_area.fill(&WHITE).unwrap();
+//     root_area.draw(&layout.as_slice());
+// }
 
-    // Drawing bars
-    let bars: Vec<_> = centrality_scores.iter().map(|(node, &score)| (*node, score)).collect();
+// pub fn display_results(
+//     correlation_results: &[CorrelationResult],
+//     playoff_correlation_results: &PlayoffCorrelationResults,
+// ) {
+//     let mut positive_correlations = Vec::new();
+//     let mut negative_correlations = Vec::new();
 
-    for (i, (node, score)) in bars.iter().enumerate() {
-        chart.draw_series(std::iter::once(Rectangle::new(
-            [(i, 0.0), (i + 1, *score)],
-            colors[i % colors.len()].filled(),
-        )))?;
-    }
+//     for result in correlation_results {
+//         println!(
+//             "Player ID: {}, Correlation Coefficient: {:.2}",
+//             result.player_id, result.correlation_coefficient
+//         );
+//     }
 
-    // Label the bars with node indices
-    chart.configure_series_labels()
-        .border_style(&BLACK)
-        .draw()?;
+//     for (player_id, result) in &playoff_correlation_results.positive_correlations {
+//         positive_correlations.push(
+//             BitMapBackendImage::new(format!(
+//                 "{}: {:.2}",
+//                 player_id, result.correlation_coefficient
+//             ))
+//             .into_drawing_area()
+//             .into_element(),
+//         );
+//     }
 
-    root.present().expect("Unable to write result to file");
-    println!("Centrality scores visualization generated.");
-    Ok(())
-}
+//     for (player_id, result) in &playoff_correlation_results.negative_correlations {
+//         negative_correlations.push(
+//             BitMapBackendImage::new(format!(
+//                 "{}: {:.2}",
+//                 player_id, result.correlation_coefficient
+//             ))
+//             .into_drawing_area()
+//             .into_element(),
+//         );
+//     }
+
+//     let layout = std::iter::once(positive_correlations.into_iter())
+//         .chain(std::iter::once(negative_correlations.into_iter()))
+//         .collect::<std::vec::Vec<_>>();
+
+//     let root_area = BitMapBackend::new("correlations.png", (1024, 768))
+//         .into_drawing_area();
+//     root_area.fill(&WHITE).unwrap();
+//     root_area.draw(&layout.as_slice());
+// }
