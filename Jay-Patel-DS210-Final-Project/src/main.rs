@@ -1,5 +1,4 @@
 mod data_loader;
-mod data_merger;
 mod analytics;
 mod graph;
 mod centrality;
@@ -7,7 +6,6 @@ mod data_structures;
 
 use data_loader::{load_player_data, load_team_data};
 use data_structures::{Player, Team, MergedData};
-use data_merger::merge_data;
 use analytics::{
     correlate_statistics, analyze_playoff_correlation, write_correlations_to_csv,
     CorrelationResult, PlayoffCorrelationResults,
@@ -40,21 +38,6 @@ fn filter_data_by_season(
 
 use petgraph::visit::EdgeRef;
 
-fn print_graph_structure(graph: &Graph) {
-    println!("Nodes:");
-    for node_id in graph.graph.node_indices() {
-        println!("Node ID: {}", node_id.index());
-    }
-
-    println!("\nEdges:");
-    for edge in graph.graph.edge_references() {
-        let source_id = edge.source();
-        let target_id = edge.target();
-        let weight = edge.weight();
-        println!("Source: {}, Target: {}, Weight: {}", source_id.index(), target_id.index(), weight);
-    }
-}
-
 fn main() {
     let player_data = load_player_data("NBA Stats (1947-Present)/Player Shooting.csv").unwrap();
     let team_data = load_team_data("NBA Stats (1947-Present)/Team Stats Per Game.csv").unwrap();
@@ -62,7 +45,6 @@ fn main() {
     let season = 2022;
     let (players_by_team, filtered_teams) = filter_data_by_season(&player_data, &team_data, season);
 
-    // Create merged_data for correlation analysis (first player from each team)
     let mut correlation_merged_data = Vec::new();
     for team in &filtered_teams {
         if let Some(team_players) = players_by_team.get(&team.abbreviation) {
@@ -74,7 +56,6 @@ fn main() {
         }
     }
 
-    // Create merged_data for centrality analysis (all players from each team)
     let mut centrality_merged_data = Vec::new();
     for team in &filtered_teams {
         if let Some(team_players) = players_by_team.get(&team.abbreviation) {
@@ -90,8 +71,6 @@ fn main() {
     let mut graph = Graph::new();
     graph.construct_from_data(&centrality_merged_data);
 
-    // print_graph_structure(&graph);
-
     let mut node_labels = HashMap::new();
     for data in &centrality_merged_data {
         node_labels.insert(data.player.id, format!("{} (Player)", data.player.name));
@@ -100,22 +79,15 @@ fn main() {
 
     let _ = calculate_centrality(&graph, &node_labels, "centrality_scores.csv").unwrap();
 
-    let correlation_results = correlate_statistics(&correlation_merged_data);
-    let playoff_correlation_results = analyze_playoff_correlation(&correlation_merged_data);
+    let player_analytics = correlate_statistics(&correlation_merged_data);
+    let playoff_correlation = analyze_playoff_correlation(&correlation_merged_data);
 
-    write_correlations_to_csv(&correlation_results, "correlation_results.csv").unwrap();
+    write_correlations_to_csv(&player_analytics, "Player Shooting Stats Analytics.csv", true).unwrap();
 
-    let positive_correlations: Vec<CorrelationResult> = playoff_correlation_results
-        .positive_correlations
+    let all_players_playoffs: Vec<CorrelationResult> = playoff_correlation
+        .all_players_correlation
         .values()
         .cloned()
         .collect();
-    write_correlations_to_csv(&positive_correlations, "positive_correlations.csv").unwrap();
-
-    let negative_correlations: Vec<CorrelationResult> = playoff_correlation_results
-        .negative_correlations
-        .values()
-        .cloned()
-        .collect();
-    write_correlations_to_csv(&negative_correlations, "negative_correlations.csv").unwrap();
+    write_correlations_to_csv(&all_players_playoffs, "Players' Contribution To Team.csv", false).unwrap();
 }

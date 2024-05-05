@@ -5,7 +5,6 @@ pub struct Player {
     pub team_abbreviation: String,
     pub season: u32,
     pub fg_percent: f64,
-    // pub avg_dist_fga: f64,
     pub fg_percent_from_x2p_range: f64,
     pub fg_percent_from_x3p_range: f64,
 }

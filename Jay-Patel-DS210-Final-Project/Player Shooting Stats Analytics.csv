@@ -1,0 +1,181 @@
+Player ID,Player Name,Team Name,Statistic Name,Correlation Coefficient
+4475,Bogdan Bogdanović,Atlanta Hawks,FG Percent Diff,-0.03899999999999998
+4475,Bogdan Bogdanović,Atlanta Hawks,FG Percent Ratio,0.9170212765957447
+4475,Bogdan Bogdanović,Atlanta Hawks,FG Percent from 2P Range Diff,-0.015000000000000013
+4475,Bogdan Bogdanović,Atlanta Hawks,FG Percent from 2P Range Ratio,0.9717514124293785
+4475,Bogdan Bogdanović,Atlanta Hawks,FG Percent from 3P Range Diff,-0.006000000000000005
+4475,Bogdan Bogdanović,Atlanta Hawks,FG Percent from 3P Range Ratio,0.9839572192513368
+4805,Aaron Nesmith,Boston Celtics,FG Percent Diff,-0.07
+4805,Aaron Nesmith,Boston Celtics,FG Percent Ratio,0.8497854077253219
+4805,Aaron Nesmith,Boston Celtics,FG Percent from 2P Range Diff,0.06499999999999995
+4805,Aaron Nesmith,Boston Celtics,FG Percent from 2P Range Ratio,1.1188299817184642
+4805,Aaron Nesmith,Boston Celtics,FG Percent from 3P Range Diff,-0.08599999999999997
+4805,Aaron Nesmith,Boston Celtics,FG Percent from 3P Range Ratio,0.7584269662921349
+4064,Andre Drummond,Brooklyn Nets,FG Percent Diff,0.135
+4064,Andre Drummond,Brooklyn Nets,FG Percent Ratio,1.2842105263157895
+4064,Andre Drummond,Brooklyn Nets,FG Percent from 2P Range Diff,0.07499999999999996
+4064,Andre Drummond,Brooklyn Nets,FG Percent from 2P Range Ratio,1.1394052044609664
+4064,Andre Drummond,Brooklyn Nets,FG Percent from 3P Range Diff,-0.361
+4064,Andre Drummond,Brooklyn Nets,FG Percent from 3P Range Ratio,0
+4465,Alex Caruso,Chicago Bulls,FG Percent Diff,-0.08199999999999996
+4465,Alex Caruso,Chicago Bulls,FG Percent Ratio,0.8291666666666667
+4465,Alex Caruso,Chicago Bulls,FG Percent from 2P Range Diff,-0.07300000000000001
+4465,Alex Caruso,Chicago Bulls,FG Percent from 2P Range Ratio,0.8635514018691589
+4465,Alex Caruso,Chicago Bulls,FG Percent from 3P Range Diff,-0.035999999999999976
+4465,Alex Caruso,Chicago Bulls,FG Percent from 3P Range Ratio,0.9024390243902439
+4905,Arnoldas Kulboka,Charlotte Hornets,FG Percent Diff,-0.468
+4905,Arnoldas Kulboka,Charlotte Hornets,FG Percent Ratio,0
+4905,Arnoldas Kulboka,Charlotte Hornets,FG Percent from 2P Range Diff,-0.542
+4905,Arnoldas Kulboka,Charlotte Hornets,FG Percent from 2P Range Ratio,0
+4905,Arnoldas Kulboka,Charlotte Hornets,FG Percent from 3P Range Diff,-0.365
+4905,Arnoldas Kulboka,Charlotte Hornets,FG Percent from 3P Range Ratio,0
+4592,Brandon Goodwin,Cleveland Cavaliers,FG Percent Diff,-0.05299999999999999
+4592,Brandon Goodwin,Cleveland Cavaliers,FG Percent Ratio,0.8869936034115139
+4592,Brandon Goodwin,Cleveland Cavaliers,FG Percent from 2P Range Diff,-0.08600000000000002
+4592,Brandon Goodwin,Cleveland Cavaliers,FG Percent from 2P Range Ratio,0.8410351201478743
+4592,Brandon Goodwin,Cleveland Cavaliers,FG Percent from 3P Range Diff,-0.010000000000000009
+4592,Brandon Goodwin,Cleveland Cavaliers,FG Percent from 3P Range Ratio,0.9718309859154929
+4306,Boban Marjanović,Dallas Mavericks,FG Percent Diff,0.13899999999999996
+4306,Boban Marjanović,Dallas Mavericks,FG Percent Ratio,1.3015184381778742
+4306,Boban Marjanović,Dallas Mavericks,FG Percent from 2P Range Diff,0.07299999999999995
+4306,Boban Marjanović,Dallas Mavericks,FG Percent from 2P Range Ratio,1.1332116788321167
+4306,Boban Marjanović,Dallas Mavericks,FG Percent from 3P Range Diff,-0.09999999999999998
+4306,Boban Marjanović,Dallas Mavericks,FG Percent from 3P Range Ratio,0.7142857142857143
+4219,Aaron Gordon,Denver Nuggets,FG Percent Diff,0.03700000000000003
+4219,Aaron Gordon,Denver Nuggets,FG Percent Ratio,1.0766045548654244
+4219,Aaron Gordon,Denver Nuggets,FG Percent from 2P Range Diff,0.030000000000000027
+4219,Aaron Gordon,Denver Nuggets,FG Percent from 2P Range Ratio,1.0521739130434784
+4219,Aaron Gordon,Denver Nuggets,FG Percent from 3P Range Diff,-0.01799999999999996
+4219,Aaron Gordon,Denver Nuggets,FG Percent from 3P Range Ratio,0.9490084985835695
+4911,Braxton Key,Detroit Pistons,FG Percent Diff,0.026000000000000023
+4911,Braxton Key,Detroit Pistons,FG Percent Ratio,1.060324825986079
+4911,Braxton Key,Detroit Pistons,FG Percent from 2P Range Diff,0.02200000000000002
+4911,Braxton Key,Detroit Pistons,FG Percent from 2P Range Ratio,1.0441767068273093
+4911,Braxton Key,Detroit Pistons,FG Percent from 3P Range Diff,-0.026000000000000023
+4911,Braxton Key,Detroit Pistons,FG Percent from 3P Range Ratio,0.920245398773006
+3500,Andre Iguodala,Golden State Warriors,FG Percent Diff,-0.08899999999999997
+3500,Andre Iguodala,Golden State Warriors,FG Percent Ratio,0.8102345415778253
+3500,Andre Iguodala,Golden State Warriors,FG Percent from 2P Range Diff,0.05999999999999994
+3500,Andre Iguodala,Golden State Warriors,FG Percent from 2P Range Ratio,1.1077199281867145
+3500,Andre Iguodala,Golden State Warriors,FG Percent from 3P Range Diff,-0.13399999999999998
+3500,Andre Iguodala,Golden State Warriors,FG Percent from 3P Range Ratio,0.631868131868132
+4904,Alperen Şengün,Houston Rockets,FG Percent Diff,0.01799999999999996
+4904,Alperen Şengün,Houston Rockets,FG Percent Ratio,1.0394736842105263
+4904,Alperen Şengün,Houston Rockets,FG Percent from 2P Range Diff,-0.0040000000000000036
+4904,Alperen Şengün,Houston Rockets,FG Percent from 2P Range Ratio,0.992633517495396
+4904,Alperen Şengün,Houston Rockets,FG Percent from 3P Range Diff,-0.10099999999999998
+4904,Alperen Şengün,Houston Rockets,FG Percent from 3P Range Ratio,0.7106017191977078
+4902,Ahmad Caver,Indiana Pacers,FG Percent Diff,0.5369999999999999
+4902,Ahmad Caver,Indiana Pacers,FG Percent Ratio,2.159827213822894
+4902,Ahmad Caver,Indiana Pacers,FG Percent from 2P Range Diff,0.45899999999999996
+4902,Ahmad Caver,Indiana Pacers,FG Percent from 2P Range Ratio,1.8484288354898335
+4902,Ahmad Caver,Indiana Pacers,FG Percent from 3P Range Diff,-0.344
+4902,Ahmad Caver,Indiana Pacers,FG Percent from 3P Range Ratio,0
+4690,Amir Coffey,Los Angeles Clippers,FG Percent Diff,-0.0050000000000000044
+4690,Amir Coffey,Los Angeles Clippers,FG Percent Ratio,0.9890829694323144
+4690,Amir Coffey,Los Angeles Clippers,FG Percent from 2P Range Diff,0.030000000000000027
+4690,Amir Coffey,Los Angeles Clippers,FG Percent from 2P Range Ratio,1.05859375
+4690,Amir Coffey,Los Angeles Clippers,FG Percent from 3P Range Diff,0.0040000000000000036
+4690,Amir Coffey,Los Angeles Clippers,FG Percent from 3P Range Ratio,1.0106951871657754
+4066,Anthony Davis,Los Angeles Lakers,FG Percent Diff,0.06300000000000006
+4066,Anthony Davis,Los Angeles Lakers,FG Percent Ratio,1.1343283582089554
+4066,Anthony Davis,Los Angeles Lakers,FG Percent from 2P Range Diff,0.02499999999999991
+4066,Anthony Davis,Los Angeles Lakers,FG Percent from 2P Range Ratio,1.0457875457875456
+4066,Anthony Davis,Los Angeles Lakers,FG Percent from 3P Range Diff,-0.16099999999999998
+4066,Anthony Davis,Los Angeles Lakers,FG Percent from 3P Range Ratio,0.5360230547550433
+4693,Brandon Clarke,Memphis Grizzlies,FG Percent Diff,0.183
+4693,Brandon Clarke,Memphis Grizzlies,FG Percent Ratio,1.3969631236442517
+4693,Brandon Clarke,Memphis Grizzlies,FG Percent from 2P Range Diff,0.14700000000000002
+4693,Brandon Clarke,Memphis Grizzlies,FG Percent from 2P Range Ratio,1.2832369942196533
+4693,Brandon Clarke,Memphis Grizzlies,FG Percent from 3P Range Diff,-0.12599999999999997
+4693,Brandon Clarke,Memphis Grizzlies,FG Percent from 3P Range Ratio,0.6430594900849859
+4472,Bam Adebayo,Miami Heat,FG Percent Diff,0.09000000000000002
+4472,Bam Adebayo,Miami Heat,FG Percent Ratio,1.1927194860813706
+4472,Bam Adebayo,Miami Heat,FG Percent from 2P Range Diff,0.031000000000000028
+4472,Bam Adebayo,Miami Heat,FG Percent from 2P Range Ratio,1.0583804143126176
+4472,Bam Adebayo,Miami Heat,FG Percent from 3P Range Diff,-0.379
+4472,Bam Adebayo,Miami Heat,FG Percent from 3P Range Ratio,0
+4307,Bobby Portis,Milwaukee Bucks,FG Percent Diff,0.010999999999999954
+4307,Bobby Portis,Milwaukee Bucks,FG Percent Ratio,1.0235042735042734
+4307,Bobby Portis,Milwaukee Bucks,FG Percent from 2P Range Diff,-0.01100000000000001
+4307,Bobby Portis,Milwaukee Bucks,FG Percent from 2P Range Ratio,0.9797794117647058
+4307,Bobby Portis,Milwaukee Bucks,FG Percent from 3P Range Diff,0.027000000000000024
+4307,Bobby Portis,Milwaukee Bucks,FG Percent from 3P Range Ratio,1.0737704918032787
+4808,Anthony Edwards,Minnesota Timberwolves,FG Percent Diff,-0.016000000000000014
+4808,Anthony Edwards,Minnesota Timberwolves,FG Percent Ratio,0.9649890590809628
+4808,Anthony Edwards,Minnesota Timberwolves,FG Percent from 2P Range Diff,-0.02100000000000002
+4808,Anthony Edwards,Minnesota Timberwolves,FG Percent from 2P Range Ratio,0.961111111111111
+4808,Anthony Edwards,Minnesota Timberwolves,FG Percent from 3P Range Diff,-0.0010000000000000009
+4808,Anthony Edwards,Minnesota Timberwolves,FG Percent from 3P Range Ratio,0.9972067039106145
+4583,Alize Johnson,New Orleans Pelicans,FG Percent Diff,-0.15700000000000003
+4583,Alize Johnson,New Orleans Pelicans,FG Percent Ratio,0.6564551422319475
+4583,Alize Johnson,New Orleans Pelicans,FG Percent from 2P Range Diff,-0.22800000000000004
+4583,Alize Johnson,New Orleans Pelicans,FG Percent from 2P Range Ratio,0.5681818181818181
+4583,Alize Johnson,New Orleans Pelicans,FG Percent from 3P Range Diff,-0.332
+4583,Alize Johnson,New Orleans Pelicans,FG Percent from 3P Range Ratio,0
+3982,Alec Burks,New York Knicks,FG Percent Diff,-0.045999999999999985
+3982,Alec Burks,New York Knicks,FG Percent Ratio,0.8947368421052632
+3982,Alec Burks,New York Knicks,FG Percent from 2P Range Diff,-0.119
+3982,Alec Burks,New York Knicks,FG Percent from 2P Range Ratio,0.7605633802816901
+3982,Alec Burks,New York Knicks,FG Percent from 3P Range Diff,0.04700000000000004
+3982,Alec Burks,New York Knicks,FG Percent from 3P Range Ratio,1.131652661064426
+4900,Aaron Wiggins,Oklahoma City Thunder,FG Percent Diff,0.03300000000000003
+4900,Aaron Wiggins,Oklahoma City Thunder,FG Percent Ratio,1.0767441860465117
+4900,Aaron Wiggins,Oklahoma City Thunder,FG Percent from 2P Range Diff,0.06599999999999995
+4900,Aaron Wiggins,Oklahoma City Thunder,FG Percent from 2P Range Ratio,1.1301775147928994
+4900,Aaron Wiggins,Oklahoma City Thunder,FG Percent from 3P Range Diff,-0.019000000000000017
+4900,Aaron Wiggins,Oklahoma City Thunder,FG Percent from 3P Range Ratio,0.9411764705882353
+4688,Admiral Schofield,Orlando Magic,FG Percent Diff,-0.015000000000000013
+4688,Admiral Schofield,Orlando Magic,FG Percent Ratio,0.9654377880184332
+4688,Admiral Schofield,Orlando Magic,FG Percent from 2P Range Diff,0.05300000000000005
+4688,Admiral Schofield,Orlando Magic,FG Percent from 2P Range Ratio,1.1045364891518739
+4688,Admiral Schofield,Orlando Magic,FG Percent from 3P Range Diff,-0.0020000000000000018
+4688,Admiral Schofield,Orlando Magic,FG Percent from 3P Range Ratio,0.9939577039274925
+4899,Aaron Henry,Philadelphia 76ers,FG Percent Diff,-0.266
+4899,Aaron Henry,Philadelphia 76ers,FG Percent Ratio,0.4291845493562232
+4899,Aaron Henry,Philadelphia 76ers,FG Percent from 2P Range Diff,-0.277
+4899,Aaron Henry,Philadelphia 76ers,FG Percent from 2P Range Ratio,0.47438330170777987
+4899,Aaron Henry,Philadelphia 76ers,FG Percent from 3P Range Diff,-0.364
+4899,Aaron Henry,Philadelphia 76ers,FG Percent from 3P Range Ratio,0
+4582,Aaron Holiday,Phoenix Suns,FG Percent Diff,-0.07400000000000001
+4582,Aaron Holiday,Phoenix Suns,FG Percent Ratio,0.8474226804123711
+4582,Aaron Holiday,Phoenix Suns,FG Percent from 2P Range Diff,-0.15300000000000002
+4582,Aaron Holiday,Phoenix Suns,FG Percent from 2P Range Ratio,0.7223230490018149
+4582,Aaron Holiday,Phoenix Suns,FG Percent from 3P Range Diff,0.08000000000000002
+4582,Aaron Holiday,Phoenix Suns,FG Percent from 3P Range Ratio,1.2197802197802199
+4586,Anfernee Simons,Portland Trail Blazers,FG Percent Diff,0.0010000000000000009
+4586,Anfernee Simons,Portland Trail Blazers,FG Percent Ratio,1.002262443438914
+4586,Anfernee Simons,Portland Trail Blazers,FG Percent from 2P Range Diff,-0.02300000000000002
+4586,Anfernee Simons,Portland Trail Blazers,FG Percent from 2P Range Ratio,0.9551656920077972
+4586,Anfernee Simons,Portland Trail Blazers,FG Percent from 3P Range Diff,0.05900000000000005
+4586,Anfernee Simons,Portland Trail Blazers,FG Percent from 3P Range Ratio,1.170520231213873
+4901,Ade Murkey,Sacramento Kings,FG Percent Diff,-0.46
+4901,Ade Murkey,Sacramento Kings,FG Percent Ratio,0
+4901,Ade Murkey,Sacramento Kings,FG Percent from 2P Range Diff,-0.53
+4901,Ade Murkey,Sacramento Kings,FG Percent from 2P Range Ratio,0
+4901,Ade Murkey,Sacramento Kings,FG Percent from 3P Range Diff,-0.344
+4901,Ade Murkey,Sacramento Kings,FG Percent from 3P Range Ratio,0
+4810,Anthony Lamb,San Antonio Spurs,FG Percent Diff,-0.467
+4810,Anthony Lamb,San Antonio Spurs,FG Percent Ratio,0
+4810,Anthony Lamb,San Antonio Spurs,FG Percent from 2P Range Diff,-0.527
+4810,Anthony Lamb,San Antonio Spurs,FG Percent from 2P Range Ratio,0
+4810,Anthony Lamb,San Antonio Spurs,FG Percent from 3P Range Diff,-0.352
+4810,Anthony Lamb,San Antonio Spurs,FG Percent from 3P Range Ratio,0
+4811,Armoni Brooks,Toronto Raptors,FG Percent Diff,-0.15600000000000003
+4811,Armoni Brooks,Toronto Raptors,FG Percent Ratio,0.649438202247191
+4811,Armoni Brooks,Toronto Raptors,FG Percent from 2P Range Diff,-0.0030000000000000027
+4811,Armoni Brooks,Toronto Raptors,FG Percent from 2P Range Ratio,0.9940357852882704
+4811,Armoni Brooks,Toronto Raptors,FG Percent from 3P Range Diff,-0.07099999999999995
+4811,Armoni Brooks,Toronto Raptors,FG Percent from 3P Range Ratio,0.7965616045845273
+4224,Bojan Bogdanović,Utah Jazz,FG Percent Diff,-0.01599999999999996
+4224,Bojan Bogdanović,Utah Jazz,FG Percent Ratio,0.9660297239915075
+4224,Bojan Bogdanović,Utah Jazz,FG Percent from 2P Range Diff,-0.04399999999999993
+4224,Bojan Bogdanović,Utah Jazz,FG Percent from 2P Range Ratio,0.9225352112676057
+4224,Bojan Bogdanović,Utah Jazz,FG Percent from 3P Range Diff,0.027000000000000024
+4224,Bojan Bogdanović,Utah Jazz,FG Percent from 3P Range Ratio,1.0750000000000002
+4582,Aaron Holiday,Washington Wizards,FG Percent Diff,-0.004999999999999949
+4582,Aaron Holiday,Washington Wizards,FG Percent Ratio,0.9894067796610171
+4582,Aaron Holiday,Washington Wizards,FG Percent from 2P Range Diff,-0.019000000000000017
+4582,Aaron Holiday,Washington Wizards,FG Percent from 2P Range Ratio,0.9650092081031307
+4582,Aaron Holiday,Washington Wizards,FG Percent from 3P Range Diff,0.0010000000000000009
+4582,Aaron Holiday,Washington Wizards,FG Percent from 3P Range Ratio,1.0029239766081872

@@ -88,13 +88,11 @@ pub fn correlate_statistics(merged_data: &[MergedData]) -> Vec<CorrelationResult
 }
 
 pub struct PlayoffCorrelationResults {
-    pub positive_correlations: HashMap<u32, CorrelationResult>,
-    pub negative_correlations: HashMap<u32, CorrelationResult>,
+    pub all_players_correlation: HashMap<u32, CorrelationResult>,
 }
 
 pub fn analyze_playoff_correlation(merged_data: &[MergedData]) -> PlayoffCorrelationResults {
-    let mut positive_correlations = HashMap::new();
-    let mut negative_correlations = HashMap::new();
+    let mut all_players_correlation = HashMap::new();
 
     let mut fg_percent_values = Vec::new();
     let mut fg_percent_from_x2p_range_values = Vec::new();
@@ -135,16 +133,11 @@ pub fn analyze_playoff_correlation(merged_data: &[MergedData]) -> PlayoffCorrela
             correlation_coefficient,
         };
 
-        if correlation_coefficient > 0.0 {
-            positive_correlations.insert(i as u32, result);
-        } else {
-            negative_correlations.insert(i as u32, result);
-        }
+        all_players_correlation.insert(i as u32, result);
     }
 
     PlayoffCorrelationResults {
-        positive_correlations,
-        negative_correlations,
+        all_players_correlation,
     }
 }
 
@@ -169,20 +162,33 @@ fn calculate_correlation(x_values: &[f64], y_values: &[f64]) -> f64 {
 pub fn write_correlations_to_csv(
     correlations: &[CorrelationResult],
     file_path: &str,
+    include_team_name: bool,
 ) -> Result<(), Box<dyn Error>> {
     let mut writer = Writer::from_path(file_path)?;
 
-    // Write the header row
-    writer.write_record(&["Player ID", "Player Name", "Team Name", "Statistic Name", "Correlation Coefficient"])?;
+    if include_team_name {
+        writer.write_record(&["Player ID", "Player Name", "Team Name", "Statistic Name", "Correlation Coefficient"])?;
+    } else {
+        writer.write_record(&["Player ID", "Player Name", "Statistic Name", "Correlation Coefficient"])?;
+    }
 
     for result in correlations {
-        writer.write_record(&[
-            result.player_id.to_string(),
-            result.player_name.clone(),
-            result.team_name.clone(),
-            result.statistic_name.clone(),
-            result.correlation_coefficient.to_string(),
-        ])?;
+        if include_team_name {
+            writer.write_record(&[
+                result.player_id.to_string(),
+                result.player_name.clone(),
+                result.team_name.clone(),
+                result.statistic_name.clone(),
+                result.correlation_coefficient.to_string(),
+            ])?;
+        } else {
+            writer.write_record(&[
+                result.player_id.to_string(),
+                result.player_name.clone(),
+                result.statistic_name.clone(),
+                result.correlation_coefficient.to_string(),
+            ])?;
+        }
     }
 
     writer.flush()?;

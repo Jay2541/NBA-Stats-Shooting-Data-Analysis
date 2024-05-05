@@ -6,7 +6,6 @@ pub fn load_player_data(file_path: &str) -> Result<Vec<Player>, Box<dyn Error>> 
     let mut reader = Reader::from_path(file_path)?;
     let mut players = Vec::new();
 
-    // Skip the header row
     reader.records().next();
 
     for result in reader.records() {
@@ -31,14 +30,6 @@ pub fn load_player_data(file_path: &str) -> Result<Vec<Player>, Box<dyn Error>> 
                     0.0
                 })
             },
-            // avg_dist_fga: if &record[13] == "NA" {
-            //     0.0
-            // } else {
-            //     record[13].parse().unwrap_or_else(|_| {
-            //         eprintln!("Error parsing average distance FGA '{}': Invalid value", record[13].to_string());
-            //         0.0
-            //     })
-            // },
             fg_percent_from_x2p_range: if &record[20] == "NA" {
                 0.0
             } else {
@@ -66,9 +57,6 @@ pub fn load_player_data(file_path: &str) -> Result<Vec<Player>, Box<dyn Error>> 
 pub fn load_team_data(file_path: &str) -> Result<Vec<Team>, Box<dyn Error>> {
     let mut reader = Reader::from_path(file_path)?;
     let mut teams = Vec::new();
-
-    // Skip the header row
-    //reader.records().next();
 
     for result in reader.records() {
         let record = result?;

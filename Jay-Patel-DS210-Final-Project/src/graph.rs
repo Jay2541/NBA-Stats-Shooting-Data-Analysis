@@ -30,7 +30,6 @@ impl Graph {
     pub fn construct_from_data(&mut self, merged_data: &[MergedData]) {
         let mut players_by_team: HashMap<String, Vec<&MergedData>> = HashMap::new();
     
-        // Group players by team
         for data in merged_data {
             if data.player.season == 2022 {
                 players_by_team
@@ -40,7 +39,6 @@ impl Graph {
             }
         }
     
-        // Create nodes and edges
         for (_, team_players) in &players_by_team {
             let mut player_nodes: HashMap<u32, NodeIndex<u32>> = HashMap::new();
     
@@ -76,7 +74,6 @@ impl Graph {
         let player2_three_point_percent = player2.player.fg_percent_from_x3p_range;
         let three_point_percent_diff = (player1_three_point_percent - player2_three_point_percent).abs();
 
-        // Combine the differences using a weighted sum
         let weight = 0.5 * fg_percent_diff + 0.3 * points_per_game_diff + 0.2 * three_point_percent_diff;
 
         weight

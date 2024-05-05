@@ -23,7 +23,6 @@ pub fn calculate_centrality(
         .map(|(score, node_id)| (*node_id, score))
         .collect();
 
-    // Write centrality scores to CSV
     let mut writer = Writer::from_path(file_path)?;
     writer.write_record(&["Node ID", "Label", "Betweenness Centrality", "Closeness Centrality"])?;
 
