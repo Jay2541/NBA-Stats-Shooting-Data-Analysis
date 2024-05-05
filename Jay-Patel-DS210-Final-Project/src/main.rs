@@ -77,7 +77,7 @@ fn main() {
         node_labels.insert(data.team.abbreviation.as_bytes().iter().map(|&b| b as u32).sum(), format!("{} (Team)", data.team.abbreviation));
     }
 
-    let _ = calculate_centrality(&graph, &node_labels, "centrality_scores.csv").unwrap();
+    let _ = calculate_centrality(&graph, &node_labels, "Centrality Scores.csv").unwrap();
 
     let player_analytics = correlate_statistics(&correlation_merged_data);
     let playoff_correlation = analyze_playoff_correlation(&correlation_merged_data);
@@ -90,4 +90,76 @@ fn main() {
         .cloned()
         .collect();
     write_correlations_to_csv(&all_players_playoffs, "Players' Contribution To Team.csv", false).unwrap();
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_filter_data_by_season() {
+        let player_data = vec![
+            Player {
+                id: 1,
+                name: "Player 1".to_string(),
+                team_abbreviation: "TEA".to_string(),
+                season: 2022,
+                fg_percent: 0.5,
+                fg_percent_from_x2p_range: 0.6,
+                fg_percent_from_x3p_range: 0.4,
+            },
+            Player {
+                id: 2,
+                name: "Player 2".to_string(),
+                team_abbreviation: "TEA".to_string(),
+                season: 2021,
+                fg_percent: 0.6,
+                fg_percent_from_x2p_range: 0.7,
+                fg_percent_from_x3p_range: 0.5,
+            },
+        ];
+
+        let team_data = vec![
+            Team {
+                abbreviation: "TEA".to_string(),
+                name: "Team A".to_string(),
+                season: 2022,
+                playoffs: true,
+                fg_percentage: 0.55,
+                two_point_percentage: 0.65,
+                three_point_percentage: 0.45,
+                points_per_game: 100.0,
+            },
+            Team {
+                abbreviation: "TEB".to_string(),
+                name: "Team B".to_string(),
+                season: 2022,
+                playoffs: false,
+                fg_percentage: 0.50,
+                two_point_percentage: 0.60,
+                three_point_percentage: 0.40,
+                points_per_game: 95.0,
+            },
+        ];
+
+        let season = 2022;
+        let (players_by_team, filtered_teams) = filter_data_by_season(&player_data, &team_data, season);
+
+        assert_eq!(players_by_team.len(), 1);
+        assert!(players_by_team.contains_key("TEA"));
+        assert_eq!(players_by_team["TEA"].len(), 1);
+        assert_eq!(players_by_team["TEA"][0].id, 1);
+
+        assert_eq!(filtered_teams.len(), 2);
+        assert_eq!(filtered_teams[0].abbreviation, "TEA");
+        assert_eq!(filtered_teams[1].abbreviation, "TEB");
+    }
+
+    #[test]
+    fn test_main() {
+        let result = std::panic::catch_unwind(|| {
+            main();
+        });
+        assert!(result.is_ok());
+    }
 }

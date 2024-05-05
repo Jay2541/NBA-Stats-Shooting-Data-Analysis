@@ -54,3 +54,44 @@ pub fn calculate_centrality(
     writer.flush()?;
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::graph::Graph;
+    use std::collections::HashMap;
+
+    #[test]
+    fn test_calculate_centrality() {
+        let mut graph = Graph::new();
+
+        let node1 = graph.add_node(1);
+        let node2 = graph.add_node(2);
+        let node3 = graph.add_node(3);
+        let node4 = graph.add_node(4);
+
+        graph.add_edge(1, 2, 1.0);
+        graph.add_edge(1, 3, 2.0);
+        graph.add_edge(2, 3, 3.0);
+        graph.add_edge(3, 4, 4.0);
+
+        let node_labels = HashMap::from([
+            (1, "Node 1".to_string()),
+            (2, "Node 2".to_string()),
+            (3, "Node 3".to_string()),
+            (4, "Node 4".to_string()),
+        ]);
+
+        let result = calculate_centrality(&graph, &node_labels, "Centrality Test.csv");
+        assert!(result.is_ok());
+        let file_contents = std::fs::read_to_string("Centrality Test.csv").unwrap();
+
+        assert!(file_contents.contains("Node ID,Label,Betweenness Centrality,Closeness Centrality"));
+        assert!(file_contents.contains("1,Node 1,0.25,0.0"));
+        assert!(file_contents.contains("2,Node 2,0.25,1"));
+        assert!(file_contents.contains("3,Node 3,0.41666666666666663,1"));
+        assert!(file_contents.contains("4,Node 4,0.25,0.6"));
+
+        std::fs::remove_file("Centrality Test.csv").unwrap();
+    }
+}

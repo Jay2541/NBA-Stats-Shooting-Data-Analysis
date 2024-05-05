@@ -194,3 +194,83 @@ pub fn write_correlations_to_csv(
     writer.flush()?;
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::data_structures::{Player, Team};
+
+    #[test]
+    fn test_correlate_statistics() {
+        let player1 = Player {
+            id: 1,
+            name: "Player 1".to_string(),
+            team_abbreviation: "TEA".to_string(),
+            season: 2022,
+            fg_percent: 0.5,
+            fg_percent_from_x2p_range: 0.6,
+            fg_percent_from_x3p_range: 0.4,
+        };
+        let team1 = Team {
+            abbreviation: "TEA".to_string(),
+            name: "Team A".to_string(),
+            season: 2022,
+            playoffs: true,
+            fg_percentage: 0.45,
+            two_point_percentage: 0.55,
+            three_point_percentage: 0.35,
+            points_per_game: 100.0,
+        };
+        let merged_data = vec![MergedData {
+            player: player1,
+            team: team1,
+        }];
+
+        let correlation_results = correlate_statistics(&merged_data);
+
+        assert_eq!(correlation_results.len(), 6);
+        assert_eq!(correlation_results[0].statistic_name, "FG Percent Diff");
+        assert_eq!(correlation_results[1].statistic_name, "FG Percent Ratio");
+    }
+
+    #[test]
+    fn test_analyze_playoff_correlation() {
+        let player1 = Player {
+            id: 1,
+            name: "Player 1".to_string(),
+            team_abbreviation: "TEA".to_string(),
+            season: 2022,
+            fg_percent: 0.5,
+            fg_percent_from_x2p_range: 0.6,
+            fg_percent_from_x3p_range: 0.4,
+        };
+        let team1 = Team {
+            abbreviation: "TEA".to_string(),
+            name: "Team A".to_string(),
+            season: 2022,
+            playoffs: true,
+            fg_percentage: 0.45,
+            two_point_percentage: 0.55,
+            three_point_percentage: 0.35,
+            points_per_game: 100.0,
+        };
+        let merged_data = vec![MergedData {
+            player: player1,
+            team: team1,
+        }];
+
+        let playoff_correlation_results = analyze_playoff_correlation(&merged_data);
+
+        assert_eq!(playoff_correlation_results.all_players_correlation.len(), 3);
+    }
+
+    #[test]
+    fn test_calculate_correlation() {
+        let x_values = vec![1.0, 2.0, 3.0, 4.0, 5.0];
+        let y_values = vec![2.0, 4.0, 6.0, 8.0, 10.0];
+
+        let correlation = calculate_correlation(&x_values, &y_values);
+
+        assert_eq!(correlation, 1.0);
+    }
+}

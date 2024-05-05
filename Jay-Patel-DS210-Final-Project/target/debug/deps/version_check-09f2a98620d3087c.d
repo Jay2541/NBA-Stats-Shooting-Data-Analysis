@@ -1,0 +1,10 @@
+/Users/jaypatel/Documents/GitHub/NBA-Stats-Shooting-Data-Analysis-1/Jay-Patel-DS210-Final-Project/target/debug/deps/libversion_check-09f2a98620d3087c.rmeta: /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/lib.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/version.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/channel.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/date.rs
+
+/Users/jaypatel/Documents/GitHub/NBA-Stats-Shooting-Data-Analysis-1/Jay-Patel-DS210-Final-Project/target/debug/deps/libversion_check-09f2a98620d3087c.rlib: /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/lib.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/version.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/channel.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/date.rs
+
+/Users/jaypatel/Documents/GitHub/NBA-Stats-Shooting-Data-Analysis-1/Jay-Patel-DS210-Final-Project/target/debug/deps/version_check-09f2a98620d3087c.d: /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/lib.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/version.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/channel.rs /Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/date.rs
+
+/Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/lib.rs:
+/Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/version.rs:
+/Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/channel.rs:
+/Users/jaypatel/.cargo/registry/src/index.crates.io-6f17d22bba15001f/version_check-0.9.4/src/date.rs:
