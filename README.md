@@ -29,4 +29,5 @@ This program filters and looks at players from the 2022 season.
 
 Works Cited (code citations):
 
-- ChatGPT was utilized for "graph.rs" (construct_from_data and calculate_weight functions) and "data_loader.rs" (for parsing + cleansing data as necessary from the CSV files).
+- ChatGPT (OpenAI)
+- URL: chat.openai.com
