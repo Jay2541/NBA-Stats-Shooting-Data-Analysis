@@ -39,4 +39,4 @@ Works Cited (code citations):
 - URL: https://docs.rs/rustworkx-core/latest/rustworkx_core/
 
 - ChatGPT (OpenAI)
-- URL: chat.openai.com
+- URL: https://chat.openai.com/
