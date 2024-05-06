@@ -26,3 +26,7 @@ The output CSV files are named, "Centrality Scores.csv", "Player Shooting Stats 
 Finally, the "Cargo.toml" file includes all of the directories necessary for the project to functionally run correctly.
 
 This program filters and looks at players from the 2022 season.
+
+Works Cited (code citations):
+
+- ChatGPT was utilized for "graph.rs" (construct_from_data and calculate_weight functions) and "data_loader.rs" (for parsing + cleansing data as necessary from the CSV files).
