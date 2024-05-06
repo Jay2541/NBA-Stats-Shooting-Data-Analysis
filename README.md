@@ -19,4 +19,10 @@ The final write-up is included in "Jay Patel - DS210 Final Project Write-Up".
 
 The output CSV files are named, "Centrality Scores.csv", "Player Shooting Stats Analytics.csv", and "Players' Contribution To Team.csv".
 
+- "Centrality Scores.csv" outputs the node and player that the node represents, along with the betweenness and closeness centrality methods which analyze how connected a player is in terms of their statistics and impact to the rest of their team. The results may vary depending on the play time of the player or the location on the graph made for that player relative to the rest of their team.
+- "Player Shooting Stats Analytics.csv" takes a more statistical approach, outputting the player and team they are on. With that, a statistic is presented, with the "correlation coefficient," which in this case just represents the coefficient for how the player is correlated to the team's average. Shooting analytics are looked at to see how effective a player is from a specific range of shooting versus the rest of their team.
+- "Players' Contribution To Team.csv" outputs statistics relative to how they impact a team's playoff success. All players are looked at in this area of focus, in order to see which area a player must excel in the most in order to help their team reach the playoffs.
+
 Finally, the "Cargo.toml" file includes all of the directories necessary for the project to functionally run correctly.
+
+This program filters and looks at players from the 2022 season.
